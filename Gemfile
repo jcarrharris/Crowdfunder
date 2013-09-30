@@ -5,7 +5,24 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
+
+group :tools do
+	gem 'guard-rspec' #auto runs tests 
+end
+
+group :development do
+	 gem 'rspec-rails', '~> 2.0' # using rspec instead of test unit
+	 gem 'better_errors' # makes the errors we see in the browser more descriptive
+	 gem "binding_of_caller"
+	 gem 'pry-rails'
+	end
+
+group :test do 
+	 gem 'rspec-rails', '~> 2.0' # using rspec instead of test unit
+	 gem "factory_girl_rails" 
+	 gem "capybara" # needed for our integration tests, which we'll talk about more later
+	end
 
 
 # Gems used only for assets and not required
