@@ -8,4 +8,7 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:id])
 	end
 
+	def project_params
+    params.require(:project).permit(:description, :goal, :teaser, :title, :user_id)
+  end
 end

@@ -11,17 +11,17 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.create(params[:id])
+		@user = User.new(user_params)
 		if @user.save
 			auto_login(@user)
-			format.html { redirect_to :root , notice: 'user was successfully created.' }
-			format.json { render json: @user, status: :created, location: @user }
+			redirect_to :root, :notice => "Account created"
 		else
 			format.html { render action: "new" }
 			format.json { render json: @user.errors, status: :unprocessable_entity }
 		end
 	end
 
-				
-
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password)
+  end
 end
