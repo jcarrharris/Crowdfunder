@@ -25,6 +25,7 @@ group :test do
 	gem 'rspec-rails', '~> 2.0' # using rspec instead of test unit
 	gem "factory_girl_rails" 
 	gem "capybara" # needed for our integration tests, which we'll talk about more later
+	gem "launchy"
 end
 
 
