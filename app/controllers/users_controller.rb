@@ -16,8 +16,7 @@ class UsersController < ApplicationController
 			auto_login(@user)
 			redirect_to :root, :notice => "Account created"
 		else
-			format.html { render action: "new" }
-			format.json { render json: @user.errors, status: :unprocessable_entity }
+			render "new"
 		end
 	end
 
