@@ -6,7 +6,7 @@ Crowdfunder::Application.routes.draw do
   resources :users
   resources :sessions
 
-  root :to => 'projects#index'
+  root :to => 'welcome#index'
 
   namespace :my do 
     resources :projects # => My::ProjectsController
