@@ -1,5 +1,53 @@
 require 'spec_helper'
 
 describe Pledge do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should require a user" do 
+    pledge = FactoryGirl.build(:pledge, user: nil)
+
+    # Should not be able to save
+    pledge.should_not == pledge.save
+
+    pledge.should have(1).errors_on(:user)
+    expect(pledge).to have(1).errors_on(:user)
+  end
+
+  it "should require a project" do 
+    pledge = FactoryGirl.build(:pledge, project: nil)
+
+    # Should not be able to save
+    pledge.should_not == pledge.save
+
+    pledge.should have(1).errors_on(:project)
+    expect(pledge).to have(1).errors_on(:project)
+  end
+
+  it "should require an amount" do 
+    pledge = FactoryGirl.build(:pledge, amount: nil)
+
+    # Should not be able to save
+    pledge.should_not == pledge.save
+
+    pledge.should have(1).errors_on(:amount)
+    expect(pledge).to have(1).errors_on(:amount)
+  end
+
+  it "should require an amount greater than 0" do 
+    pledge = FactoryGirl.build(:pledge, amount: -10)
+
+    # Should not be able to save
+    pledge.should_not == pledge.save
+
+    pledge.should have(1).errors_on(:amount)
+    expect(pledge).to have(1).errors_on(:amount)
+  end
+
+  it "should require an amount to be an integer" do 
+    pledge = FactoryGirl.build(:pledge, amount: 'abc')
+
+    # Should not be able to save
+    pledge.should_not == pledge.save
+
+    pledge.should have(1).errors_on(:amount)
+    expect(pledge).to have(1).errors_on(:amount)
+  end
 end
