@@ -52,5 +52,40 @@ describe "User Authentication" do
       page.should have_no_content("Account created")
       expect(page).to have_no_content("Account created")
     end
+
+    it "should successfully log in" do
+      visit '/'
+      find('.navbar').has_no_link?('Logout').should be_true
+      # Calling the helper method here, and it returns a user
+      user = setup_signed_in_user
+      find('.navbar').has_link?('Logout').should be_true
+    end
+
+    it "should unsuccessfully log in" do
+      visit '/session/new'
+
+      fill_in "email", with: "a@b.com"
+      fill_in "password", with: "invalid creds"
+      click_button "Login"
+
+      expect(current_path).to eq(session_path)
+
+      page.should have_content('Invalid')
+      expect(page).to have_content('Invalid')
+    end
+
+    it "should successfully logout" do
+      # Calling the helper method again
+      user = setup_signed_in_user
+
+      visit '/'
+
+      find('.navbar').click_link 'Logout'
+
+      page.should have_content("Bye")
+      expect(page).to have_content("Bye")
+
+      find('.navbar').has_no_link?('Logout')
+    end
   end
 end
