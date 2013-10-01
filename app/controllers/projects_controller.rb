@@ -9,6 +9,10 @@ class ProjectsController < ApplicationController
 	
 	end
 
+	def nav_state
+		@nav = :projects
+	end
+
 	def project_params
     	params.require(:project).permit(:description, :goal, :teaser, :title, :user_id)
   end
