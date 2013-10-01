@@ -56,7 +56,8 @@ describe "Project Listing" do
       # Expect the projects nav element is active
       page.should have_selector('.navbar ul li.active a', text: "Projects") 
       expect(page).to have_selector('.navbar ul li.active a', text: "Projects")
-
+      page.should have_selector('.navbar ul li.active a', count: 1)
+      expect(page).to have_selector('.navbar ul li.active a', count: 1)
       
 
       # On a project's show page, the Projects nav element should still be active
