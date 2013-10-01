@@ -19,6 +19,7 @@ group :development do
 	gem 'better_errors' # makes the errors we see in the browser more descriptive
 	gem "binding_of_caller"
 	gem 'pry-rails'
+	gem 'letter_opener'
 end
 
 group :test do 
