@@ -7,15 +7,15 @@ class SessionsController < ApplicationController
 
 	def create
 		if @user = login(params[:email], params[:password])
-			redirect_to sessions_path, notice: "Logged in!"
+			redirect_to projects_path, notice: "Logged in!"
 		else
-			redirect_to sessions_path, notice: "Invalid"
+			redirect_to projects_path, notice: "Invalid"
 		end
 	end
 
 	def destroy
 		logout
-		redirect_to(:root, notice: "Logged out")
+		redirect_to(:root, notice: "Bye")
 	end
 
 end

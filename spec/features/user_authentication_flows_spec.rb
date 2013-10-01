@@ -68,7 +68,7 @@ describe "User Authentication" do
       fill_in "password", with: "invalid creds"
       click_button "Login"
 
-      expect(current_path).to eq(sessions_path)
+      expect(current_path).to eq(projects_path)
 
       page.should have_content('Invalid')
       expect(page).to have_content('Invalid')
