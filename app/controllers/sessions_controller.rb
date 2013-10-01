@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
 
 	def create
 		if @user = login(params[:email], params[:password])
-			redirect_to :root, notice: "Logged in!"
+			redirect_to sessions_path, notice: "Logged in!"
 		else
-			render 'new'
+			redirect_to sessions_path, notice: "Invalid"
 		end
 	end
 

@@ -62,13 +62,13 @@ describe "User Authentication" do
     end
 
     it "should unsuccessfully log in" do
-      visit '/session/new'
+      visit '/sessions/new'
 
       fill_in "email", with: "a@b.com"
       fill_in "password", with: "invalid creds"
       click_button "Login"
 
-      expect(current_path).to eq(session_path)
+      expect(current_path).to eq(sessions_path)
 
       page.should have_content('Invalid')
       expect(page).to have_content('Invalid')
