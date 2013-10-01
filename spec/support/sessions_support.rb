@@ -6,7 +6,7 @@ module SessionSupport #we can call this helper in any test
 		visit '/sessions/new'
 
 		fill_in "email", with: user.email
-		fill_in "password", with: password
+		fill_in "password", with: pass
 		click_button "Login"
 		# Return our user when this method is called
 		user
