@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 			auto_login(@user)
 			redirect_to :root, :notice => "Account created"
 		else
-			render "new"
+			redirect_to users_path, :alert => "Try again"
 		end
 	end
 
