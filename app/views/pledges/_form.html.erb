@@ -1,0 +1,12 @@
+<%= form_for([@project, @pledge]) do |f| %>
+
+<div class="reservation_name">
+	<%=f.label :amount %>
+	<%=f.number_field :amount, placeholder:'100'%>
+</div>
+
+<div class="actions">
+	<%= f.submit "Pledge Now" %>
+</div>
+
+<% end %>
