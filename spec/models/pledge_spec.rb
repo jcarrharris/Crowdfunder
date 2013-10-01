@@ -7,8 +7,8 @@ describe Pledge do
     # Should not be able to save
     pledge.should_not == pledge.save
 
-    pledge.should have(1).errors_on(:user)
-    expect(pledge).to have(1).errors_on(:user)
+    pledge.should have(1).errors_on(:user_id)
+    expect(pledge).to have(1).errors_on(:user_id)
   end
 
   it "should require a project" do 
@@ -17,8 +17,8 @@ describe Pledge do
     # Should not be able to save
     pledge.should_not == pledge.save
 
-    pledge.should have(1).errors_on(:project)
-    expect(pledge).to have(1).errors_on(:project)
+    pledge.should have(1).errors_on(:project_id)
+    expect(pledge).to have(1).errors_on(:project_id)
   end
 
   it "should require an amount" do 
