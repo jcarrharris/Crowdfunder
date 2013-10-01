@@ -1,8 +1,11 @@
 Crowdfunder::Application.routes.draw do
 
-  resources :projects
+  resources :projects do
+    resources :pledges
+  end
   resources :users
   resources :sessions
+
   root :to => 'projects#index'
 
 
