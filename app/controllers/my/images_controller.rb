@@ -14,6 +14,7 @@ class My::ImagesController < ApplicationController
       redirect_to [:my, @project, :images], notice: "Image uploaded. Check it out below."
     else
       @images = @project.images.order(:id)
+      flash.now[:alert] = "not allowed"
       render :index
     end
   end

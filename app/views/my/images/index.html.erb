@@ -1,0 +1,10 @@
+<%= form_for([:my, @project, @image]) do |f| %>
+	<%= f.file_field :file %>
+	<%= f.submit "Upload Image" %>
+<% end %>
+
+<%= @images.each do |i| %>
+	<div class = "image"> 
+		<%= i.file %>		
+	</div>
+<% end %>
