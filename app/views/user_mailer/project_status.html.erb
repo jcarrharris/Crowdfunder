@@ -1,0 +1,17 @@
+<p>
+  Hey <%= @user.name %>, here's how <%= link_to @project.title, project_url(@project) %> is doing.
+</p>
+
+<p>
+    So far you have raised $<%= @project.raised %>
+    from <%= pluralize(@project.number_of_supporters, 'person') %>.
+    That is <%= @project.percent_raised %>% of your $<%= @project.goal %> goal!
+</p>
+
+<hr/>
+
+<p>
+  Best of luck!
+  <br/>
+  CrowdFunder team.
+</p>

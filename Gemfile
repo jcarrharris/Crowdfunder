@@ -10,6 +10,8 @@ gem 'sqlite3'
 gem 'pg'
 gem 'sorcery'
 
+gem 'whenever', :require => false
+
 group :tools do
 	gem 'guard-rspec' #auto runs tests 
 end
