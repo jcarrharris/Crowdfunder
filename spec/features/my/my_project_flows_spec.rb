@@ -77,5 +77,24 @@ describe "Project Listing" do
       expect(current_path).to eq(new_my_project_path)
       expect(find('.navbar ul li.active a').text).to eq("My Projects")
     end
+    it "should be able to delete my project" do 
+      # Capybara.current_driver = Capybara.javascript_driver
+
+      me = setup_signed_in_user
+      project = FactoryGirl.create :project, user: me
+
+      visit edit_my_project_path(project)
+
+      assert has_link?("Delete Project")
+      click_link 'Delete Project'
+
+      # page.driver.accept_js_confirms! # Warning: this is specific to webkit driver
+
+      page.should have_content('deleted')
+      expect(page).to have_content('deleted')
+
+      expect(Project.find_by_id(project.id)).to eq(nil)
+      Project.find_by_id(project.id).should be_nil
+    end
   end
 end

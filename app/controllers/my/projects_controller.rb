@@ -31,6 +31,11 @@ class My::ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @project.destroy
+    redirect_to projects_path, alert: "deleted"
+  end
+
   def nav_state
     @nav = :my_projects
   end
